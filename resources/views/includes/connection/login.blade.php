@@ -5,8 +5,29 @@
                 <a href="#"> <img src="{{asset('images/logo.png')}}" alt="logo" style="width: 150px; height:150px; border-radius:50%"> </a>
             </div>
             <h2 class="text-center" style="margin-top: -20px">Se Connecter</h2>
-            <form action="" method="POST">
+            <form action="{{route('authentification')}}" method="POST">
                 @csrf
+                @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div>
+                        <strong>Message Success</strong> <br>
+                        {{ session('success') }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                @if ($errors->any())
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" required>
@@ -20,13 +41,11 @@
                         <button type="submit" class="btn btn-connexion btn-lg ">Se Connecter</button>
                     </div>
                     <div>
-                        <p>Pas de compte ? <a href="/register" style="text-decoration:none; color :#470046">S'inscrire</a></p>
+                        <p>Pas de compte ? <a href="{{route('register')}}" style="text-decoration:none; color :#470046">S'inscrire</a></p>
                     </div>
-                </div>  
+                </div>
             </form>
-           
+
         </div>
     </div>
 </div>
-
-
