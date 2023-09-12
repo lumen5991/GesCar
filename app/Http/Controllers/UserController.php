@@ -13,15 +13,15 @@ class UserController extends Controller
 {
 
     public function login(){
-        return view('login');
+        return view('connection.login');
     }
 
-    public function see_register(){
-        return view('register');
+    public function register(){
+        return view('registrations.register');
     }
 
 
-    public function register(Request $request){
+    public function send_register(Request $request){
         $data = $request->all();
         $request->validate([
             "nom" => "required",

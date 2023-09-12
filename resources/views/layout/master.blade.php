@@ -10,7 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <title>@yield('title', 'Document')</title>
 </head>
-<body style="background-color:@yield('bg-color', '#fff');">
+<body style="background-color:@yield('bg-color', '#fff')">
 
     @yield('content')
 
