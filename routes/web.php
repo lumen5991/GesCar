@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 //Page d'acceuil
 Route::get('/', function () {
-    return view('homePage.home');
+    return view('register');
 });
 
+<<<<<<< HEAD
+=======
 //Page d'inscription
 Route::get('/register', function () {
     return view('registrations.register');
@@ -27,6 +30,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('connection.login');
 });
+>>>>>>> 5b137e78d64143df5272ca1231ae2d160948bcf2
 
 
 
