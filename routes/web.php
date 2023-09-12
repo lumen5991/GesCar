@@ -13,7 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Page d'acceuil
 Route::get('/', function () {
     return view('homePage.home');
+});
+
+//Page d'inscription
+Route::get('/register', function () {
+    return view('registrations.register');
+});
+
+//Page de connection
+Route::get('/login', function () {
+    return view('connection.login');
 });
 
