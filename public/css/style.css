@@ -1,36 +1,124 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-   background-color: #fff; /*couleur d'arrière plan*/
-   color: #000; /*couleur de texte*/
+body {
+    background-color: #fff;
+    /*couleur d'arrière plan*/
+    color: #000;
+    /*couleur de texte*/
 }
 
 .welcome-text {
     font-size: 24px;
-   
+
 }
 
-.jumbotron{
+.jumbotron {
     color: #fff;
 }
 
 .btn-connexion {
-    background-color: #470046; /* Couleur du bouton Connexion */
-    color: #fff; /* Couleur du texte du bouton Connexion */
+    background-color: #470046;
+    /* Couleur du bouton Connexion */
+    color: #fff;
+    /* Couleur du texte du bouton Connexion */
 }
 
 .btn-inscription {
-    background-color: #B000B1; /* Couleur du bouton Inscription */
-    color: #fff; /* Couleur du texte du bouton Inscription */
+    background-color: #B000B1;
+    /* Couleur du bouton Inscription */
+    color: #fff;
+    /* Couleur du texte du bouton Inscription */
 }
 
 .form-container {
-    background-color: #fff; /* Couleur de fond du formulaire d'inscription */
+    background-color: #fff;
+    /* Couleur de fond du formulaire d'inscription */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* interfaces principales */
+
+.navbar {
+    background-color: #0b022f;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 220px;
+    right: 0;
+    width: calc(100% - 220px);
+    padding:10px;
+    
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.navbar-brand h3 {
+    color: #fff;
+    margin: 0;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #a07e9f;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 8%;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar a:hover {
+    width: 100%;
+    background-color: #D762D2; /* Couleur de fond au survol */
+    color: #fff;
+    border-radius: 20px 20px;
+    transform: scale(1.1); /* Agrandit le bouton au survol */
+    transition: transform 0.3s ease-in-out; /* Animation fluide */
+    transform: translateX(5px); /* Déplace le bouton vers la droite au survol */
+}
+
+.main-content {
+    padding: 20px;
+    margin-top: 70px; 
+    margin-left: 220px; /* Largeur du sidebar */
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* tableau*/
+.t_head {
+    background-color: #0B022F; 
+    color: #fff;
 }

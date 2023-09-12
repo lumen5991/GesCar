@@ -16,11 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 //Page d'acceuil
 Route::get('/', function () {
-    return view('register');
+    return view('homePage.home');
 });
 
-<<<<<<< HEAD
-=======
 //Page d'inscription
 Route::get('/register', function () {
     return view('registrations.register');
@@ -30,7 +28,12 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('connection.login');
 });
->>>>>>> 5b137e78d64143df5272ca1231ae2d160948bcf2
+
+//Page de connection
+Route::get('/customers', function () {
+    return view('interfaces.customers');
+});
+
 
 
 

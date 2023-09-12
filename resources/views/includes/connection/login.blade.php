@@ -17,7 +17,7 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between mt-2">
                     <div>
-                        <button type="submit" class="btn btn-connexion btn-lg ">Se Connecter</button>
+                        <a href="/customers" style="text-decoration:none;" class="btn btn-connexion btn-lg ">Se Connecter</a>
                     </div>
                     <div>
                         <p>Pas de compte ? <a href="/register" style="text-decoration:none; color :#470046">S'inscrire</a></p>
