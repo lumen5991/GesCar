@@ -6,7 +6,19 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
-{
+{   
+    public function customers(){
+        return view('interfaces.customers');
+    }
+
+    public function addcusto(){
+        return view('interfaces.addcusto');
+    }
+
+    public function modifycusto(){
+        return view('interfaces.modifycusto');
+    }
+
     public function see_client(){
         $client = Client::all();
     }

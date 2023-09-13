@@ -40,7 +40,12 @@ Route::controller(UserController::class)->prefix('user')->group(function(){
 });
 
 Route::controller(ClientController::class)->middleware('auth')->prefix('client')->group(function(){
+    
+    Route::get('/customers', 'customers')->name('customers');
 
+    Route::get('/addcusto', 'addcusto')->name('addcusto');
+
+    Route::get('/modifycusto', 'modifycusto')->name('modifycusto');
 });
 
 Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture')->group(function(){

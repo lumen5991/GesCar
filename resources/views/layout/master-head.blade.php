@@ -26,14 +26,14 @@
             <!-- Sidebar -->
             <div class="col-md-2 col-12 sidebar fixed-top">
                 <div style="margin-top:-45%;">
-                    <a class="navbar-brand" href="#">
+                    <a class="sidebar-brand" href="{{route('customers')}}">
                         <img src="{{ asset('images/logo.png') }}" alt="logo">
                     </a>
                 </div>
-                <div class="position-sticky" style="margin-top: 30%">
+                <div class="position-sticky" style="margin-top: 20%">
                     <ul class="nav flex-column gap-4 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('addcusto')}}">
                                 <i class="fas fa-user"></i> Ajouter un client
                             </a>
                         </li>
