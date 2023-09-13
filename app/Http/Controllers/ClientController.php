@@ -7,8 +7,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
+<<<<<<< HEAD
 {
     public function see_customers(){
+=======
+{   
+    public function customers(){
+        return view('interfaces.customers');
+    }
+
+    public function addcusto(){
+        return view('interfaces.addcusto');
+    }
+
+    public function modifycusto(){
+        return view('interfaces.modifycusto');
+    }
+
+    public function see_client(){
+>>>>>>> 22f29240a012e3ca96ab115cc297193524815b82
         $client = Client::all();
        /*  dd($client); */
         $user = Auth::user();
