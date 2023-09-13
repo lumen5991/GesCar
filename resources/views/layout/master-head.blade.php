@@ -15,8 +15,8 @@
     <!-- Header (Navbar) -->
     <header>
         <nav class="navbar navbar-light">
-                <div class="navbar-brand" style="color: #fff;">AHLE Lumen</div>
-                <div> <a href="#" class="btn btn-outline-light">Se Déconnecter</a> </div>
+                <div class="navbar-brand" style="color: #fff;">{{$nom}}  {{$prenom}}</div>
+                <div> <a href="{{route('logout')}}" class="btn btn-outline-light">Se Déconnecter</a> </div>
         </nav>
     </header>
 
@@ -33,7 +33,7 @@
                 <div class="position-sticky" style="margin-top: 30%">
                     <ul class="nav flex-column gap-4 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('addEtudiant')}}">
                                 <i class="fas fa-user"></i> Ajouter un client
                             </a>
                         </li>

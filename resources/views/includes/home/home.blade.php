@@ -7,7 +7,7 @@
         <p class="lead welcome-text">La meilleure solution pour louer des véhicules.</p>
         <hr class="my-4">
         <p class="welcome-text">Commencez dès maintenant en vous connectant ou en vous inscrivant.</p>
-        <a href="{{route('register')}}" class="btn btn-connexion btn-lg mx-2">Connexion</a>
-        <a href="{{route('login')}}" class="btn btn-inscription btn-lg mx-2">Inscription</a>
+        <a href="{{route('login')}}" class="btn btn-connexion btn-lg mx-2">Connexion</a>
+        <a href="{{route('register')}}" class="btn btn-inscription btn-lg mx-2">Inscription</a>
     </div> 
 </div>

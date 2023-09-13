@@ -83,10 +83,15 @@ class UserController extends Controller
     public function authentification(Request $request){
         $user = Auth::attempt(['email'=>$request->email, 'password'=>$request->password, 'email_verify'=>true]);
         if($user){
-         return redirect()->route('login');
+         return redirect()->route('see_customers');
         };
  
         return redirect()->back()->with('errors', 'Combinaison email/password invalide !');
      }
+
+     public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 
 }

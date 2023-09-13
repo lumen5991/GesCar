@@ -37,10 +37,13 @@ Route::controller(UserController::class)->prefix('user')->group(function(){
     Route::get('/verify_email/{email}', 'verify')->name('email_verified');
 
     Route::post('/authentification/login', 'authentification')->name('authentification');
+
+    Route::get('/logout', 'logout')->name('logout');
 });
 
 Route::controller(ClientController::class)->middleware('auth')->prefix('client')->group(function(){
 
+    Route::get('/customers', 'see_customers')->name('see_customers');
 });
 
 Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture')->group(function(){

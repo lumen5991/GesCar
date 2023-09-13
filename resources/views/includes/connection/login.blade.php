@@ -7,38 +7,26 @@
             <h2 class="text-center" style="margin-top: -20px">Se Connecter</h2>
             <form action="{{route('authentification')}}" method="POST">
                 @csrf
-                @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @if (session('errors'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <div>
-                        <strong>Message Success</strong> <br>
-                        {{ session('success') }}
+                        <strong>Alert</strong> <br>
+                        {{ session('errors') }}
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
-                @if ($errors->any())
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>
-                            {{ $error }}
-                        </li>
-                        @endforeach
-                    </ul>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="d-flex align-items-center justify-content-between mt-2">
                     <div>
-                        <a href="/customers" style="text-decoration:none;" class="btn btn-connexion btn-lg ">Se Connecter</a>
+                        <button type="submit" class="btn btn-inscription btn-lg ">Se connecter</button>
                     </div>
                     <div>
                         <p>Pas de compte ? <a href="{{route('register')}}" style="text-decoration:none; color :#470046">S'inscrire</a></p>
