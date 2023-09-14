@@ -20,7 +20,6 @@ class UserController extends Controller
         return view('registrations.register');
     }
 
-
     public function send_register(Request $request){
         $data = $request->all();
         $request->validate([
@@ -63,11 +62,9 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Compte enregistré, veuillez verifier votre mail!');
     }
 
-
     public function verify(Request $request, $email)
     {
         $user = User::where('email', $email)->first();
-        /* dd($user);  */
         if (!$user) {
             abort(404);
         };
@@ -84,13 +81,21 @@ class UserController extends Controller
     }
 
     public function authentification(Request $request){
-        /*  dd(Auth::user()); */
         $user = Auth::attempt(['email'=>$request->email, 'password'=>$request->password, 'email_verify'=>true]);
         if($user){
+<<<<<<< HEAD
+         return redirect()->route('see_customers');
+=======
          return redirect()->route('customers');
+>>>>>>> 22f29240a012e3ca96ab115cc297193524815b82
         };
  
         return redirect()->back()->with('errors', 'Combinaison email/password invalide !');
      }
+
+     public function logout(){
+        Auth::logout();
+        return redirect()->route('login');
+    }
 
 }

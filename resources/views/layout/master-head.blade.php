@@ -15,8 +15,8 @@
     <!-- Header (Navbar) -->
     <header>
         <nav class="navbar navbar-light">
-                <div class="navbar-brand" style="color: #fff;">AHLE Lumen</div>
-                <div> <a href="#" class="btn btn-outline-light">Se Déconnecter</a> </div>
+                <div class="navbar-brand" style="color: #fff;">{{$nom}}  {{$prenom}}</div>
+                <div> <a href="{{route('logout')}}" class="btn btn-outline-light">Se Déconnecter</a> </div>
         </nav>
     </header>
 
