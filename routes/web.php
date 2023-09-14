@@ -49,6 +49,8 @@ Route::controller(ClientController::class)->middleware('auth')->prefix('client')
 });
 
 Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture')->group(function(){
+    Route::get('/cars', 'cars')->name('cars');
+    Route::get('/addcar', 'addcar')->name('addcar');
 
 });
 

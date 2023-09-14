@@ -49,10 +49,10 @@ body {
     color: #fff;
     position: fixed;
     top: 0;
-    left: 230px;
+    left: 250px;
     right: 0;
-    width: calc(100% - 230px);
-    padding:10px;
+    width: calc(100% - 250px);
+    padding:15px;
     
 }
 
@@ -69,16 +69,14 @@ body {
 }
 
 .sidebar {
-    width: 230px;
+    width: 250px;
     background-color: #a07e9f;
     padding: 20px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 8%;
-
-    
+    padding-top: 8%; 
 }
 
 .sidebar ul {
@@ -89,7 +87,6 @@ body {
 
 .sidebar li {
     margin-bottom: 10px;
-
 }
 
 .sidebar ul li a{
@@ -101,20 +98,20 @@ body {
     padding: 10px;
 }
 
-.sidebar ul li a:hover {
-    width: 100%;
-    background-color: #D762D2; /* Couleur de fond au survol */
-    color: #fff;
+.sidebar ul li a:hover, .sidebar ul li a:focus {
+    width: 250px;
+    font-weight: bold;
+    background-color: #fff; /* Couleur de fond au survol */
+    color: #D762D2;
     border-radius: 20px 20px;
     transform: scale(1.1); /* Agrandit le bouton au survol */
-    transition: transform 0.3s ease-in-out; /* Animation fluide */
     transform: translateX(5px); /* Déplace le bouton vers la droite au survol */
 }
 
 .main-content {
     padding: 20px;
     margin-top: 70px; 
-    margin-left: 230px; /* Largeur du sidebar */
+    margin-left: 250px; /* Largeur du sidebar */
 }
 
 .fixed-top {
@@ -122,4 +119,24 @@ body {
     top: 0;
     left: 0;
     right: 0;
+}
+
+.btn-car {
+    background-color:#0B022F;
+    color: #fff;
+}
+
+.btn-mark {
+    background-color:#AC64C0;
+    color: #fff;
+}
+
+.btn-model {
+    background-color:#212121;
+    color: #fff;
+}
+
+.btn-cat {
+    background-color:#2D062B;
+    color: #fff;
 }

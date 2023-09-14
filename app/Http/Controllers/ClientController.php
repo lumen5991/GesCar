@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {   
     public function customers(){
-        return view('interfaces.customers');
+        return view('customerManagement.customers');
     }
 
     public function addcusto(){
-        return view('interfaces.addcusto');
+        return view('customerManagement.addcusto');
     }
 
     public function modifycusto(){
-        return view('interfaces.modifycusto');
+        return view('customerManagement.modifycusto');
     }
 
     public function see_client(){

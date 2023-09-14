@@ -6,7 +6,15 @@ use App\Models\Voiture;
 use Illuminate\Http\Request;
 
 class VoitureController extends Controller
-{
+{   
+    public function cars(){
+        return view('carManagement.cars');
+    }
+
+    public function addcar(){
+        return view('carManagement.addcar');
+    }
+
     public function see_all_voiture()
     {
         $voiture = Voiture::all();

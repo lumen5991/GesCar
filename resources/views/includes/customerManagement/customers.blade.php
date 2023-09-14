@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container">
     <h1>Liste des Clients</h1>
     <table class="table table-striped table-bordered">
         <thead>
@@ -14,7 +14,7 @@
 
             <tr>
                 <td class="align-middle"> 
-                    <img src="" alt="Photo" style="width: 50px; height:50px; border-radius:50%" class="img-thumbnail">
+                    <img src="" alt="Photo" style="width: 50px; height:50px;" class="img-thumbnail rounded-circle">
                 </td>
                 <td class="align-middle">AHLE Rolande</td>
                 <td class="align-middle">+229 96787423</td>
