@@ -5,7 +5,7 @@
                 <a href="#"> <img src="{{ asset('images/logo.png') }}" alt="logo" style="width: 150px; height:150px; border-radius:50%;"> </a>
             </div>
             <h2 class="text-center" style="margin-top: -20px">Modifier un client</h2>
-            <form action="" method="POST">
+            <form action="{{route('modifyCustomersInfo', ['id_client' => $id_client ])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -27,31 +27,31 @@
                 @endif
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" id="nom" name="nom" required>
+                    <input type="text" class="form-control" id="nom" name="nom" value="{{$data['nom']}}">
                 </div>
                 <div class="form-group">
                     <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control" id="prenom" name="prenom" required>
+                    <input type="text" class="form-control" id="prenom" name="prenom" value="{{$data['prenom']}}">
                 </div>
                 <div class="form-group">
                     <label for="tel">Téléphone</label>
-                    <input type="text" class="form-control" id="tel" name="tel" required>
+                    <input type="text" class="form-control" id="tel" name="tel" value="{{$data['tel']}}">
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse</label>
-                    <input type="text" class="form-control" id="adresse" name="adresse" required>
+                    <input type="text" class="form-control" id="adresse" name="adresse" value="{{$data['adresse']}}">
                 </div>
                 <div class="form-group">
                     <label for="photo" class="form-label">Ajouter photo du client :</label>
-                    <input class="form-control" type="file" value="" name="photo" >
+                    <input class="form-control" type="file" value="" name="photo" value="{{$data['photo']}}">
                 </div>
                 <div class="form-group">
                     <label for="cni">No Carte Nationale d'Identité</label>
-                    <input type="text" class="form-control" id="cni" name="cni" required>
+                    <input type="text" class="form-control" id="cni" name="cni" value="{{$data['cni']}}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" value="{{$data['email']}}">
                 </div>
                 <div class="d-flex align-items-center justify-content-between mt-2">
                     <div>

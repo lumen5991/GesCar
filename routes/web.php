@@ -47,13 +47,17 @@ Route::controller(ClientController::class)->middleware('auth')->prefix('client')
 
     Route::get('/addcusto', 'addcusto')->name('addcusto');
 
-    Route::post('/send_client/addcusto', 'send_client')->name('send_client');
+    Route::post('/send_customers/addcusto', 'send_customers')->name('send_customers');
 
-    Route::get('/modifycusto', 'modifycusto')->name('modifycusto');
+    Route::get('/modifycusto/{id_client}', 'modifycusto')->name('modifycusto');
+
+    Route::post('/modifyCustomersInfo/modifycusto/{id_client}', 'modifyCustomersInfo')->name('modifyCustomersInfo');
 });
 
 Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture')->group(function(){
+    
     Route::get('/cars', 'cars')->name('cars');
+    
     Route::get('/addcar', 'addcar')->name('addcar');
 
 });

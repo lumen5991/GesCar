@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Voiture;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VoitureController extends Controller
 {   
     public function cars(){
-        return view('carManagement.cars');
+        $user = Auth::user();
+        $nom = $user ? $user->nom :"";
+        $prenom = $user ? $user->prenom: "";
+        return view('carManagement.cars', compact('nom', 'prenom'));
     }
 
     public function addcar(){
-        return view('carManagement.addcar');
+        $user = Auth::user();
+        $nom = $user ? $user->nom :"";
+        $prenom = $user ? $user->prenom: "";
+        return view('carManagement.addcar', compact('nom', 'prenom'));
     }
 
     public function see_all_voiture()

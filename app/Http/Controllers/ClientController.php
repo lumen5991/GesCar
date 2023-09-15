@@ -9,40 +9,58 @@ use Illuminate\Support\Facades\Auth;
 class ClientController extends Controller
 {   
     public function customers(){
-        return view('customerManagement.customers');
+        $client = Client::all();
+        /*  dd($client); */
+         $user = Auth::user();
+         $nom = $user ? $user->nom :"";
+         $prenom = $user ? $user->prenom: "";
+        return view('customerManagement.customers',  compact('nom', 'prenom', 'client'));
     }
 
     public function addcusto(){
-        return view('customerManagement.addcusto');
+         $user = Auth::user();
+         $nom = $user ? $user->nom :"";
+         $prenom = $user ? $user->prenom: "";
+        return view('customerManagement.addcusto',  compact('nom', 'prenom'));
     }
 
-    public function modifycusto(){
-        return view('customerManagement.modifycusto');
+    public function modifycusto($id_client){
+         $user = Auth::user();
+         $nom = $user ? $user->nom :"";
+         $prenom = $user ? $user->prenom: "";
+         $studentInfo = Client::all();
+         $data = Client::where('id_client', $id_client)->first();
+        return view('customerManagement.modifycusto',  compact('nom', 'prenom','data', 'id_client'));
     }
-
+/* 
     public function see_client(){
         $client = Client::all();
-       /*  dd($client); */
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";
         return view('interfaces.modifycusto', compact('nom', 'prenom'));
     }
-
-
+ */
+/* 
    public function addStudent()
    {
+    $user = Auth::user();
+    $nom = $user ? $user->nom :"";
+    $prenom = $user ? $user->prenom: "";
       return view('addetudiant');
    }
 
    public function add($id_client)
    {
+    $user = Auth::user();
+    $nom = $user ? $user->nom :"";
+    $prenom = $user ? $user->prenom: "";
       $student = Client::all();
       $data = Client::find($id_client);
       return view('addetudiant', compact('id_client', 'data', 'student'));
-   }
+   } */
 
-    public function send_client(Request $request){
+    public function send_customers(Request $request){
         $data = $request->all();
 
         $validate = $request->validate([
@@ -54,38 +72,32 @@ class ClientController extends Controller
             "cni" => "required",
             "tel" => "required"
         ]);
+
+       /*  dd($data['photo']); */
         
-    /*     if ($data['photo']) {
-            $photo = $data['photo'];
-            $path = $photo->store('photo');
-        }; */
+      if ($data["photo"]) {
+            $path = $data["photo"]->store('photo');
+        }; 
 
         $save = Client::create([
             "nom" => $data['nom'],
             "prenom" => $data['prenom'],
             "tel" => $data['tel'],
             "adresse" => $data['adresse'],
-            "photo" => $data['photo']->store('photo'),
+            "photo" => $path,
             "cni" => $data['cni'],
             "email" => $data['email']
         ]);
-        return redirect()->route('see_customers')->with('message', 'Nouvel ajout efféctué !');
+        return redirect()->route('customers')->with('message', 'Nouvel ajout efféctué !');
     }
 
 
-   public function getStudentInfo($id_client){
-    $studentInfo = Client::all();
-    $data = Client::where('id_client', $id_client)->first();
-   /*  dd($data); */
-    return view('addetudiant', compact('data', 'id_client'));
- }
-
- public function modifyStudentInfo(Request $request, $id_client){
+ public function modifyCustomersInfo(Request $request, $id_client){
     $data = $request->all();
-    if($data['photo']){
-       $photo = $data['photo'];
-       $path = $photo->store('photo');
-    };
+    if ($data["photo"]) {
+        $path = $data["photo"]->store('photo');
+    }; 
+
     Client::where('id_client',$id_client)->update([
         "nom" => $data['nom'],
         "prenom" => $data['prenom'],
@@ -105,6 +117,6 @@ class ClientController extends Controller
        "photo" => "required",
     ]); */
 
-   return redirect()->route('see_customers')->with('message', 'Modification effectuée !');
+   return redirect()->route('customers')->with('message', 'Modification effectuée !');
  }
 }
