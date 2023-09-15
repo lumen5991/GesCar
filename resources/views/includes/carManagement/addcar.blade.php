@@ -1,12 +1,12 @@
-<div class="container mt-3" style="width: ">
-    <div class="row justify-content-center">
-        <div class="col-md-6 form-container" style="width: 80%">
-            <div class="logo text-center" style="margin-top:-50px">
+<div class="mx-auto" style="">
+    <div class="justify-content-center">
+        <div class="form-container">
+            <div class="logo text-center" style="margin-top:-30px">
                 <a href="#"> <img src="{{ asset('images/logo.png') }}" alt="logo"
-                        style="width: 200px; height:200px; border-radius:50%;"> </a>
+                        style="width: 150px; height:150px; border-radius:50%;"> </a>
             </div>
-            <h2 class="text-center mb-4 " style="margin-top:-50px">Ajouter une voiture</h2>
-            <form action="" method="POST">
+            <h2 class="text-center" style="margin-top: -20px">Ajouter une voiture</h2>
+            <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -26,85 +26,99 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <div class="d-flex justify-content-between mb-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nom_voiture" name="nom_voiture" placeholder="Nom Voiture" style="">
+                <div>
+                    <div class="mb-3">
+                        <select class="form-select" name="" id="">
+                            <option selected> Sélectionner la catégorie</option>
+                            <option value="">Voiture 1</option>
+                            <option value="">Voiture 1</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="boite_vitesse" name="boite_vitesse" placeholder="boite à Vitesse">
+                    <div class="mb-3">
+                        <select class="form-select" name="" id="">
+                            <option selected> Sélectionner la marque</option>
+                            <option value="">Voiture 1</option>
+                            <option value="">Voiture 1</option>
+                        </select>
                     </div>
-                </div>
-                <div class="d-flex justify-content-between mb-3">
-                    <div class="form-group">
-                        <input type="number" class="form-control" id="puissance" name="puissance"
-                            placeholder="Puissance">
+                    <div class="mb-3">
+                        <select class="form-select" name="" id="">
+                            <option selected> Sélectionner le modèle</option>
+                            <option value="">Voiture 1</option>
+                            <option value="">Voiture 1</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" id="nbre_porte" name="nbre_porte"
-                            placeholder="Nombre de Portes">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="boite_vitesse" name="boite_vitesse"
+                                value="" placeholder="boite_vitesse">
+                        </div>
+                        <div class="form-group ">
+                            <input type="number" class="form-control" id="puissance" name="puissance" value=""
+                                placeholder="puissance">
+                        </div>
+                        <div class="form-group ">
+                            <input type="number" class="form-control" id="nbre_porte" name="nbre_porte" value=""
+                                placeholder="nbre_porte">
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-between mb-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="carburant" name="carburant"
-                            placeholder="Carburant">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" id="nbre_cylindre" name="nbre_cylindre"
-                            placeholder="Nombre de Cylindre">
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between mb-3">
-                    <div class="form-group">
-                        <input type="number" class="form-control" id="soupape" name="soupape" placeholder="Soupape">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" id="vitesse_max" name="vitesse_max"
-                            placeholder="Vitesse maximale">
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex justify-content-between mb-3">
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="carosserie" name="carosserie"
-                            placeholder="Carosserie">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="carburant" name="carburant" value=""
+                                placeholder="carburant">
+                        </div>
+                        <div class="form-group ">
+                            <input type="number" class="form-control" id="nbre_cylindre" name="nbre_cylindre"
+                                value="" placeholder="nbre_cylindre">
+                        </div>
+                        <div class="form-group ">
+                            <input type="number" class="form-control" id="soupape" name="soupape" value=""
+                                placeholder="soupape">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="transmission" name="transmission"
-                            placeholder="Transmission">
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="form-group ">
+                            <input type="number" class="form-control" id="vitesse_max" name="vitesse_max"
+                                value="" placeholder="vitesse_max">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" class="form-control" id="carosserie" name="carosserie"
+                                value="" placeholder="carosserie">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" class="form-control" id="transmission" name="transmission"
+                                value="" placeholder="transmission">
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-between mb-3">
-                    <div class="form-group" style="50%">
-                        <input type="text" class="form-control" id="frein" name="frein" placeholder="Frein">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" id="acceleration" name="acceleration"
-                            placeholder="Accélération">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="form-group mb-3">
-                        <input type="text" class="form-control" id="couleur" name="couleur"
-                            placeholder="Couleur">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="form-group ">
+                            <input type="text" class="form-control" id="frein" name="frein"
+                                value=""placeholder="frein">
+                        </div>
+                        <div class="form-group ">
+                            <input type="number" class="form-control" id="acceleration" name="acceleration"
+                                value="" placeholder="acceleration">
+                        </div>
+                        <div class="form-group ">
+                            <input type="text" class="form-control" id="couleur" name="couleur"
+                                value=""placeholder="couleur">
+                        </div>
                     </div>
                     <div class="form-group ">
-                        <input class="form-control" type="file" value="" name="image_principale">
+                        <input type="file" class="form-control" id="image" name="image" value=""
+                            multiple>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <div class="form-group mb-3">
-                        <input class="form-control" type="file" value="" name="image_2">
-                    </div>
-                    <div class="form-group mb-3">
-                        <input class="form-control" type="file" value="" name="image_3">
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-between mt-2">
-                    <div>
+
+                    <div class="d-flex align-items-center justify-content-between mt-2">
+
                         <button type="submit" class="btn btn-connexion btn-lg ">Enregistrer</button>
+
                     </div>
+
                 </div>
+
             </form>
         </div>
     </div>
