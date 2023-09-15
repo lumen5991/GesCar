@@ -9,22 +9,20 @@ use Illuminate\Support\Facades\Auth;
 class ClientController extends Controller
 {   
     public function customers(){
-        $client = Client::all();
-        /*  dd($client); */
-         $user = Auth::user();
-         $nom = $user ? $user->nom :"";
-         $prenom = $user ? $user->prenom: "";
-         return view('interfaces.customers', compact('client', 'nom', 'prenom'));
+        return view('customerManagement.customers');
     }
 
     public function addcusto(){
-        $user = Auth::user();
-        $nom = $user ? $user->nom :"";
-        $prenom = $user ? $user->prenom: "";
-        return view('interfaces.addcusto', compact('nom', 'prenom'));
+        return view('customerManagement.addcusto');
     }
 
     public function modifycusto(){
+        return view('customerManagement.modifycusto');
+    }
+
+    public function see_client(){
+        $client = Client::all();
+       /*  dd($client); */
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";

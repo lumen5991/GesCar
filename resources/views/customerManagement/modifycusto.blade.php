@@ -4,6 +4,6 @@
 
 @section('content')
     <section>
-        @include('includes.interface.addcusto')
+        @include('includes.customerManagement.modifycusto')
     </section>
 @endsection
