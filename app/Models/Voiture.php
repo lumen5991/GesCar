@@ -28,4 +28,9 @@ class Voiture extends Model
     ];
 
     protected $table = "voiture";
+
+    public function get_attributes(){
+        return $this->belongsTo(Modele::class);
+        return $this->belongsTo(Marque::class);
+    }
 }
