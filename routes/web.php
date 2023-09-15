@@ -47,6 +47,8 @@ Route::controller(ClientController::class)->middleware('auth')->prefix('client')
 
     Route::get('/addcusto', 'addcusto')->name('addcusto');
 
+    Route::post('/send_client/addcusto', 'send_client')->name('send_client');
+
     Route::get('/modifycusto', 'modifycusto')->name('modifycusto');
 });
 

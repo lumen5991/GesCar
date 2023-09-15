@@ -7,31 +7,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
-<<<<<<< HEAD
-{
-    public function see_customers(){
-=======
 {   
     public function customers(){
-        return view('interfaces.customers');
+        $client = Client::all();
+        /*  dd($client); */
+         $user = Auth::user();
+         $nom = $user ? $user->nom :"";
+         $prenom = $user ? $user->prenom: "";
+         return view('interfaces.customers', compact('client', 'nom', 'prenom'));
     }
 
     public function addcusto(){
-        return view('interfaces.addcusto');
-    }
-
-    public function modifycusto(){
-        return view('interfaces.modifycusto');
-    }
-
-    public function see_client(){
->>>>>>> 22f29240a012e3ca96ab115cc297193524815b82
-        $client = Client::all();
-       /*  dd($client); */
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";
-        return view('interfaces.customers', compact('client', 'nom', 'prenom'));
+        return view('interfaces.addcusto', compact('nom', 'prenom'));
+    }
+
+    public function modifycusto(){
+        $user = Auth::user();
+        $nom = $user ? $user->nom :"";
+        $prenom = $user ? $user->prenom: "";
+        return view('interfaces.modifycusto', compact('nom', 'prenom'));
     }
 
 
@@ -50,7 +47,7 @@ class ClientController extends Controller
     public function send_client(Request $request){
         $data = $request->all();
 
-        $request->validate([
+        $validate = $request->validate([
             "nom" => "required",
             "prenom" => "required",
             "email" => "required",
@@ -59,18 +56,18 @@ class ClientController extends Controller
             "cni" => "required",
             "tel" => "required"
         ]);
-
-        if ($data['photo']) {
+        
+    /*     if ($data['photo']) {
             $photo = $data['photo'];
             $path = $photo->store('photo');
-        };
+        }; */
 
         $save = Client::create([
             "nom" => $data['nom'],
             "prenom" => $data['prenom'],
             "tel" => $data['tel'],
             "adresse" => $data['adresse'],
-            "photo" => $path,
+            "photo" => $data['photo']->store('photo'),
             "cni" => $data['cni'],
             "email" => $data['email']
         ]);
