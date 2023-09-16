@@ -31,7 +31,6 @@ class VoitureController extends Controller
     {
         $data = $request->all();
         $request->validate([
-            "nom_voiture" => "required",
             "boite_vitesse" => "required",
             "puissance" => "required",
             "nbre_porte" => "required",
