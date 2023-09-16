@@ -61,7 +61,6 @@
     </div>
 
 
-    <script src="{{ asset('css/bootstrap.min.css') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>

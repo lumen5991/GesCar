@@ -60,6 +60,8 @@ Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture
     
     Route::get('/addcar', 'addcar')->name('addcar');
 
+    Route::get('/seeMore', 'seeMore')->name('seeMore');
+
   
 
 });
