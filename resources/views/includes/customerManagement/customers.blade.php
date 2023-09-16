@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($client as $item)
+            @foreach ($client as $item)
             <tr>
                 <td class="align-middle"> 
                     <img src="{{asset($item['photo'])}}" alt="Photo" style="width: 50px; height:50px;" class="img-thumbnail rounded-circle">
@@ -24,6 +24,7 @@
                 </td>
             </tr>
             @endforeach
+           
         </tbody>
     </table>
 </div>

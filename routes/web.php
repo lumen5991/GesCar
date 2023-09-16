@@ -60,6 +60,8 @@ Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture
     
     Route::get('/addcar', 'addcar')->name('addcar');
 
+  
+
 });
 
 Route::controller(LocationController::class)->middleware('auth')->prefix('location')->group(function(){
@@ -68,13 +70,24 @@ Route::controller(LocationController::class)->middleware('auth')->prefix('locati
 
 Route::controller(MarqueController::class)->middleware('auth')->prefix('marque')->group(function(){
 
+    Route::get('/brand', 'brand')->name('brand');
+
+    Route::get('/modifyBrand', 'modifyBrand')->name('modifyBrand');
+
 });
 
 Route::controller(ModeleController::class)->middleware('auth')->prefix('modele')->group(function(){
 
+    Route::get('/model', 'model')->name('model');
+
+    Route::get('/modifyModel', 'modifyModel')->name('modifyModel');
 });
 
 Route::controller(CategorieController::class)->middleware('auth')->prefix('categorie')->group(function(){
+
+Route::get('/category', 'category')->name('category');
+
+Route::get('/modifyCategory', 'modifyCategory')->name('modifyCategory');
 
 });
 

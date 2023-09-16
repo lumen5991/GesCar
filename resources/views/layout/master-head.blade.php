@@ -7,7 +7,7 @@
     <title>@yield('title', 'interfaces')</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/bootstrap.min.js') }}">
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 
@@ -15,8 +15,8 @@
     <!-- Header (Navbar) -->
     <header>
         <nav class="navbar navbar-light">
-                <div class="navbar-brand" style="color: #fff;">{{$nom}}  {{$prenom}}</div>
-                <div> <a href="{{route('logout')}}" class="btn btn-outline-light">Se Déconnecter</a> </div>
+            <div class="navbar-brand" style="color: #fff;">{{ $nom }} {{ $prenom }}</div>
+            <div> <a href="{{ route('logout') }}" class="btn btn-outline-light">Se Déconnecter</a> </div>
         </nav>
     </header>
 
@@ -26,19 +26,19 @@
             <!-- Sidebar -->
             <div class="col-md-2 col-12 sidebar fixed-top">
                 <div style="margin-top:-45%;">
-                    <a class="sidebar-brand" href="{{route('customers')}}">
+                    <a class="sidebar-brand" href="{{ route('customers') }}">
                         <img src="{{ asset('images/logo.png') }}" alt="logo">
                     </a>
                 </div>
                 <div class="position-sticky" style="margin-top: 20%">
                     <ul class="nav flex-column gap-4 ">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('addcusto')}}">
+                            <a class="nav-link" href="{{ route('addcusto') }}">
                                 <i class="fas fa-user"></i> Ajouter un client
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('cars')}}">
+                            <a class="nav-link" href="{{ route('cars') }}">
                                 <i class="fas fa-car"></i> Gestion des voitures
                             </a>
                         </li>
@@ -60,6 +60,10 @@
         </div>
     </div>
 
+
+    <script src="{{ asset('css/bootstrap.min.css') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>

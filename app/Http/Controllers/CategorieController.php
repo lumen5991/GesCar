@@ -1,24 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
-    public function see_categorie(){
-        $categorie = Categorie::all();
+    //
+    public function category() {
+        $user = Auth::user();
+        $nom = $user ? $user->nom :"";
+        $prenom = $user ? $user->prenom: "";
+        return view('carManagement.category', compact('nom', 'prenom'));
     }
 
-    public function send_categorie(Request $request){
-        $data = $request->all();
-        $request->validate([
-            "name" => "required"
-        ]);
-
-        $save = Categorie::create([
-            "name" => $data['name']
-        ]);
+    public function modifyCategory() {
+        $user = Auth::user();
+        $nom = $user ? $user->nom :"";
+        $prenom = $user ? $user->prenom: "";
+        return view('carManagement.modifyCategory', compact('nom', 'prenom'));
     }
 }

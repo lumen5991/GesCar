@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class VoitureController extends Controller
 {   
+
+
+
+    
     public function cars(){
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
