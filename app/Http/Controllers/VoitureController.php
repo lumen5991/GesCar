@@ -26,6 +26,13 @@ class VoitureController extends Controller
         return view('carManagement.addcar', compact('nom', 'prenom'));
     }
 
+    public function seeMore(){
+        $user = Auth::user();
+        $nom = $user ? $user->nom :"";
+        $prenom = $user ? $user->prenom: "";
+        return view('carManagement.seeMore', compact('nom', 'prenom'));
+    }
+
     public function see_all_voiture()
     {
         $voiture = Voiture::all();
