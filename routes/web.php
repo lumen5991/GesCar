@@ -72,6 +72,8 @@ Route::controller(MarqueController::class)->middleware('auth')->prefix('marque')
 
     Route::get('/brand', 'brand')->name('brand');
 
+    Route::post('/send_brand/brand', 'send_brand')->name('send_brand');
+
     Route::get('/modifyBrand', 'modifyBrand')->name('modifyBrand');
 
 });
@@ -87,7 +89,11 @@ Route::controller(CategorieController::class)->middleware('auth')->prefix('categ
 
 Route::get('/category', 'category')->name('category');
 
+Route::post('/add_categorie/categorie', 'add_categorie')->name('add_categorie');
+
 Route::get('/modifyCategory', 'modifyCategory')->name('modifyCategory');
+
+Route::post('/modifyCat/modifyCategory', 'modifyCat')->name('modifyCat');
 
 });
 

@@ -6,7 +6,7 @@
                         style="width: 150px; height:150px; border-radius:50%;"> </a>
             </div>
             <h2 class="text-center" style="margin-top: -20px">Ajouter une Marque</h2>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{route('send_brand')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -31,12 +31,12 @@
                 </div>
                 <div class="mt-3">
                     <div>
-                        <select class="form-select"  name="" id="" style="width: 100%">
+                        <select class="form-select"  name="category_id" id="" style="width: 100%">
 
                             <option selected> Sélectionner la catégorie </option>
-                            <option value="">Voiture 1</option>
-                            <option value="">Voiture 1</option>
-
+                            @foreach($category as $item)
+                            <option value="{{$item['id_cat']}}">{{$item['name']}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
                 <a href="#"> <img src="{{ asset('images/logo.png') }}" alt="logo" style="width: 150px; height:150px; border-radius:50%;"> </a>
             </div>
             <h2 class="text-center" style="margin-top: -20px">Ajouter une Catégorie</h2>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{route('add_categorie')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
