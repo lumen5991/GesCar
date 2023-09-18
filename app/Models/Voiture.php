@@ -33,7 +33,5 @@ class Voiture extends Model
         return $this->belongsTo(Modele::class, 'modele_id', 'id_modele');
     } 
 
-    public function location(){
-        return $this-> hasMany(Location::class, 'id_voiture', 'id_location');
-    }
+  
 }

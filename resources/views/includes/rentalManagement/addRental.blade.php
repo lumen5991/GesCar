@@ -6,7 +6,7 @@
                         style="width: 150px; height:150px; border-radius:50%;"> </a>
             </div>
             <h2 class="text-center" style="margin-top: -20px">Ajouter une location</h2>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{route('send_rental')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -28,26 +28,28 @@
                 @endif
                 <div class="">
                     <div class="my-2">
-                        <select class="form-select" name="" id="" style="width: 100%">
+                        <select class="form-select" name="id_client" id="" style="width: 100%">
                             <option selected>Liste des clients</option>
-                            <option value="">AHLE Rolande</option>
-                            <option value="">PANOUSSI Rostel</option>
+                            @foreach($client as $item)
+                            <option value="{{$item->id_client}}">{{$item->nom}}  {{$item->prenom}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="my-2">
-                        <select class="form-select" name="" id="" style="width: 100%">
+                        <select class="form-select" name="id_voiture" id="" style="width: 100%">
                             <option selected>Liste des voitures disponibles</option>
-                            <option value="">AHLE Rolande</option>
-                            <option value="">PANOUSSI Rostel</option>
+                            @foreach($cars as $item)
+                            <option value="{{$item->id_voiture}}">{{$item->cars_modele->modele_name}}  {{$item->cars_modele->marque->name}}  {{$item->cars_modele->annee}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group my-2">
                         <label for="date_sortie">Date de sortie</label>
-                        <input type="date" class="form-control" id="date_sortie" name="date_sortie">
+                        <input type="date" class="form-control" id="date_sortie" name="date_sortie_voiture">
                     </div>
                     <div class="form-group my-2">
                         <label for="date_retour">Date de retour prévue</label>
-                        <input type="date" class="form-control" id="date_retour" name="date_retour">
+                        <input type="date" class="form-control" id="date_retour" name="date_prevue_retour">
                     </div>
                 </div>
 

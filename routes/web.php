@@ -74,6 +74,8 @@ Route::controller(LocationController::class)->middleware('auth')->prefix('locati
     
     Route::get('/addRental', 'addRental')->name('addRental');
 
+    Route::post('/send_rental/addRental', 'send_rental')->name('send_rental');
+
 });
 
 Route::controller(MarqueController::class)->middleware('auth')->prefix('marque')->group(function(){
