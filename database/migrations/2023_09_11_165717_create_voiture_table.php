@@ -31,7 +31,7 @@ class CreateVoitureTable extends Migration
             $table->string('image_principale')->nullable();
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();
-            $table->bigInteger('modele_id');
+            $table->bigInteger('modele_id')->nullable();
             $table->foreign("modele_id")->references('id_modele')->on('modele');
             $table->timestamps();
         });

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
+use App\Models\Marque;
+use App\Models\Modele;
 use App\Models\Voiture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,21 +19,40 @@ class VoitureController extends Controller
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";
-        return view('carManagement.cars', compact('nom', 'prenom'));
+        $cars = Voiture::all();
+        $cars_list = [];
+        foreach($cars as $item){
+            $car = $item->cars_modele;
+            $cars_list = $car;
+        }
+      /*    dd($cars[1]->cars_modele->marque->category);   */
+        return view('carManagement.cars', compact('nom', 'prenom', 'cars', 'cars_list'));
     }
 
     public function addcar(){
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";
-        return view('carManagement.addcar', compact('nom', 'prenom'));
+        $data_cat = Categorie::all();
+        $data_model = Modele::all();
+        $data_marque = Marque::all();
+        return view('carManagement.addcar', compact('nom', 'prenom', 'data_model', 'data_marque', 'data_cat'));
     }
 
-    public function seeMore(){
+    public function seeMore($id_voiture){
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";
-        return view('carManagement.seeMore', compact('nom', 'prenom'));
+        $cars = Voiture::all();
+        $data = $cars->where('id_voiture', $id_voiture)->first();
+        $data_cars = $data->cars_modele;
+        /* $cars_list = [];
+        foreach($data as $item){
+            $car = $item->cars_modele;
+            $cars_list = $car;
+        } */
+       /*   dd($data_cars);  */
+        return view('carManagement.seeMore', compact('nom', 'prenom','id_voiture', 'data', 'data_cars'));
     }
 
     public function see_all_voiture()
@@ -38,7 +60,7 @@ class VoitureController extends Controller
         $voiture = Voiture::all();
     }
 
-    public function add_voiture(Request $request)
+    public function add_cars(Request $request)
     {
         $data = $request->all();
         $request->validate([
@@ -54,14 +76,14 @@ class VoitureController extends Controller
             "frein" => "required",
             "acceleration" => "required",
             "couleur" => "required",
-            "image" => "required",
+            "image_principale" => "required",
             "image_2" => "required",
             "image_3" => "required",
-            "modele" => "required"
+            "modele_id" => "required"
         ]);
 
-        if ($data['image']) {
-            $photo = $data['image'];
+        if ($data['image_principale']) {
+            $photo = $data['image_principale'];
             $path_1 = $photo->store('image_principale');
         };
         if ($data['image_2']) {
@@ -73,8 +95,7 @@ class VoitureController extends Controller
             $path_3 = $photo->store('image_tertiaire');
         };
 
-        $save = $request->validate([
-            "nom_voiture" => $data['nom_voiture'],
+        $save = Voiture::create([
             "boite_vitesse" => $data['boite_vitesse'],
             "puissance" => $data['puissance'],
             "nbre_porte" => $data['nbre_porte'],
@@ -87,10 +108,11 @@ class VoitureController extends Controller
             "frein" => $data['frein'],
             "acceleration" => $data['acceleration'],
             "couleur" => $data['couleur'],
-            "image" => $path_1,
+            "image_principale" => $path_1,
             "image_2" => $path_2,
             "image_3" => $path_3,
-            "modele" => $data['modele']
+            "modele_id" => $data['modele_id']
         ]);
+        return redirect()->route('cars')->with('success', 'Nouvelle voiture ajoutée avec succès!');
     }
 }
