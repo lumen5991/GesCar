@@ -70,6 +70,10 @@ Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture
 
 Route::controller(LocationController::class)->middleware('auth')->prefix('location')->group(function(){
 
+    Route::get('/rental', 'rental')->name('rental');
+    
+    Route::get('/addRental', 'addRental')->name('addRental');
+
 });
 
 Route::controller(MarqueController::class)->middleware('auth')->prefix('marque')->group(function(){

@@ -45,7 +45,7 @@ body {
 /* interfaces principales */
 
 .navbar {
-    background-color: #0b022f;
+    background-color: #A099AB;
     color: #fff;
     position: fixed;
     top: 0;
@@ -70,7 +70,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #a07e9f;
+    background-color: #594D6C;
     padding: 20px;
     height: 100vh;
     position: fixed;
@@ -141,4 +141,6 @@ body {
     color: #fff;
 }
 
-    
+.custom-thead, .car-thead, .rental-thead {
+    height: 50px;
+}
