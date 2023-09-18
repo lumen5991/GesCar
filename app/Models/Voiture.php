@@ -22,8 +22,8 @@ class Voiture extends Model
         'acceleration',
         'couleur',
         'image_principale',
-        'image_2',
-        'image_3',
+        'image_secondaire',
+        'image_tertiaire',
         'modele_id'
     ];
 

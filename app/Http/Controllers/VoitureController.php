@@ -77,8 +77,8 @@ class VoitureController extends Controller
             "acceleration" => "required",
             "couleur" => "required",
             "image_principale" => "required",
-            "image_2" => "required",
-            "image_3" => "required",
+            "image_secondaire" => "required",
+            "image_tertiaire" => "required",
             "modele_id" => "required"
         ]);
 
@@ -86,12 +86,12 @@ class VoitureController extends Controller
             $photo = $data['image_principale'];
             $path_1 = $photo->store('image_principale');
         };
-        if ($data['image_2']) {
-            $photo = $data['image_2'];
+        if ($data['image_secondaire']) {
+            $photo = $data['image_secondaire'];
             $path_2 = $photo->store('image_secondaire');
         };
-        if ($data['image_3']) {
-            $photo = $data['image_3'];
+        if ($data['image_tertiaire']) {
+            $photo = $data['image_tertiaire'];
             $path_3 = $photo->store('image_tertiaire');
         };
 
@@ -109,8 +109,8 @@ class VoitureController extends Controller
             "acceleration" => $data['acceleration'],
             "couleur" => $data['couleur'],
             "image_principale" => $path_1,
-            "image_2" => $path_2,
-            "image_3" => $path_3,
+            "image_secondaire" => $path_2,
+            "image_tertiaire" => $path_3,
             "modele_id" => $data['modele_id']
         ]);
         return redirect()->route('cars')->with('success', 'Nouvelle voiture ajoutée avec succès!');

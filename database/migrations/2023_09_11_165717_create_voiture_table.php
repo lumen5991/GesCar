@@ -29,8 +29,8 @@ class CreateVoitureTable extends Migration
             $table->integer('acceleration')->nullable();
             $table->string('couleur')->nullable();
             $table->string('image_principale')->nullable();
-            $table->string('image_2')->nullable();
-            $table->string('image_3')->nullable();
+            $table->string('image_secondaire')->nullable();
+            $table->string('image_tertiaire')->nullable();
             $table->bigInteger('modele_id')->nullable();
             $table->foreign("modele_id")->references('id_modele')->on('modele');
             $table->timestamps();

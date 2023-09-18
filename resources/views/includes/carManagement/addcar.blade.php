@@ -105,10 +105,10 @@
                         <input type="file" class="form-control" id="image" name="image_principale">
                     </div>
                     <div class="form-group ">
-                        <input type="file" class="form-control" id="image" name="image_2">
+                        <input type="file" class="form-control" id="image" name="image_secondaire">
                     </div>
                     <div class="form-group ">
-                        <input type="file" class="form-control" id="image" name="image_3">
+                        <input type="file" class="form-control" id="image" name="image_tertiaire">
                     </div>
 
 
