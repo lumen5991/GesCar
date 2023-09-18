@@ -7,21 +7,15 @@
             <h2 class="text-center" style="margin-top: -20px">Modifier Catégorie</h2>
             <form action="{{route('modifyCat')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <div>
-                        <strong>Message Success</strong> <br>
-                        {{ session('success') }}
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
-                @if (session('errors'))
+                @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <div>
-                        <strong>Alert</strong> <br>
-                        {{ session('errors') }}
-                    </div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                        @endforeach
+                    </ul>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif

@@ -60,7 +60,9 @@ Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture
     
     Route::get('/addcar', 'addcar')->name('addcar');
 
-    Route::get('/seeMore', 'seeMore')->name('seeMore');
+    Route::post('/add_cars/addcar', 'add_cars')->name('add_cars');
+
+    Route::get('/seeMore/{id_voiture}', 'seeMore')->name('seeMore');
 
   
 
@@ -82,11 +84,15 @@ Route::controller(MarqueController::class)->middleware('auth')->prefix('marque')
 
     Route::get('/modifyBrand', 'modifyBrand')->name('modifyBrand');
 
+    Route::post('/brand_modify/modifyBrand', 'brand_modify')->name('brand_modify');
+
 });
 
 Route::controller(ModeleController::class)->middleware('auth')->prefix('modele')->group(function(){
 
     Route::get('/model', 'model')->name('model');
+
+    Route::post('/send_model/model', 'send_model')->name('send_model');
 
     Route::get('/modifyModel', 'modifyModel')->name('modifyModel');
 });

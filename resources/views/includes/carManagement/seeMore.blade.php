@@ -1,37 +1,37 @@
 <div class="container">
+    @if(@isset($id_voiture))
     <h1>Fiche Technique de Voiture</h1>
     <div class="px-1 py-1" style="border:4px solid #0B022F">
-
         <div class="text-center">
             <div class="" >
-                <p><strong style="color: #2D062B">Nom de la voiture:</strong>Nom de la voiture</p>
+                <p><strong style="color: #2D062B">Nom de la voiture:</strong>{{$data_cars->marque->name}}  {{$data_cars->modele_name}}  {{$data_cars->annee}}</p>
             </div>
         </div>
         <div class="d-flex gap-3">
             <div style="width: 30%">
                 <div>
-                    <p><strong style="color: #2D062B">Marque:</strong> Marque de la voiture</p>
+                    <p><strong style="color: #2D062B">Marque:</strong> {{$data_cars->marque->name}}</p>
                 </div>
                 <div class="" >
-                    <p><strong style="color: #2D062B">Catégorie:</strong> Catégorie de la voiture</p>
+                    <p><strong style="color: #2D062B">Catégorie:</strong>{{$data_cars->marque->category->name}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Boite à vitesse:</strong>Boite à vitesse de la voiture</p>
+                    <p><strong style="color: #2D062B">Boite à vitesse:</strong>{{$data->boite_vitesse}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Puissance:</strong> Puissance de la voiture</p>
+                    <p><strong style="color: #2D062B">Puissance:</strong> {{$data->puissance}}</p>
                 </div>
                 <div class="" >
-                    <p><strong style="color: #2D062B">Carburant:</strong>Nom de la voiture</p>
+                    <p><strong style="color: #2D062B">Carburant:</strong>{{$data->carburant}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Nombre de cylindre:</strong>Boite à vitesse de la voiture</p>
+                    <p><strong style="color: #2D062B">Nombre de cylindre:</strong>{{$data->cylindre}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Soupape:</strong> Soupape de la voiture</p>
+                    <p><strong style="color: #2D062B">Soupape:</strong>{{$data->soupape}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Couleur:</strong>Couleur  de la voiture</p>
+                    <p><strong style="color: #2D062B">Couleur:</strong>{{$data->couleur}}</p>
                 </div>
 
                 
@@ -40,13 +40,13 @@
                 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="width: 80%; ">
-                            <img src="{{ asset('images/voiture1.png') }}" class="d-block w-100" alt="Image 1" style="width: 100%; height:100%">
+                            <img src="{{ asset($data->image_principale) }}" class="d-block w-100" alt="Image 1" style="width: 100%; height:100%">
                         </div>
                         <div class="carousel-item" style="width: 80%;">
-                            <img src="{{ asset('images/voiture2.png') }}" class="d-block w-100" alt="Image 2" style="width: 100%; height:100%">
+                            <img src="{{ asset($data->image_secondaire) }}" class="d-block w-100" alt="Image 2" style="width: 100%; height:100%">
                         </div>
-                        <div class="carousel-item" style="width:">
-                            <img src="{{ asset('images/voiture3.png') }}" class="d-block w-100" alt="Image 3" style="width: 100%; height:100%">
+                        <div class="carousel-item" style="width:80%">
+                            <img src="{{ asset($data->image_tertiaire) }}" class="d-block w-100" alt="Image 3" style="width: 100%; height:100%">
                         </div>
                     </div>
     
@@ -68,25 +68,26 @@
             </div>
             <div style="width: 30%">
                 <div>
-                    <p><strong style="color: #2D062B">Modèle:</strong> Modèle de la voiture</p>
+                    <p><strong style="color: #2D062B">Modèle:</strong>{{$data_cars->modele_name}} </p>
                 </div>
                 <div class="" >
-                    <p><strong style="color: #2D062B">Vitesse maximale:</strong>Vitesse maximale de la voiture</p>
+                    <p><strong style="color: #2D062B">Vitesse maximale:</strong>{{$data->vitesse_max}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Carosserie:</strong>Carosserie de la voiture</p>
+                    <p><strong style="color: #2D062B">Carosserie:</strong>{{$data->carrosserie}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Transmission:</strong>Transmission  de la voiture</p>
+                    <p><strong style="color: #2D062B">Transmission:</strong>{{$data->transmission}}</p>
                 </div>
                 <div class="" >
-                    <p><strong style="color: #2D062B">Frein:</strong>Frein de la voiture</p>
+                    <p><strong style="color: #2D062B">Frein:</strong>{{$data->frein}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Accélération:</strong>Accélération de la voiture</p>
+                    <p><strong style="color: #2D062B">Accélération:</strong>{{$data->acceleration}}</p>
                 </div>
               
             </div>
         </div>
     </div>
+    @endif
 </div>

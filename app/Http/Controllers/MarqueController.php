@@ -36,10 +36,24 @@ class MarqueController extends Controller
         $user = Auth::user();
         $nom = $user ? $user->nom :"";
         $prenom = $user ? $user->prenom: "";
-        return view('carManagement.modifyBrand', compact('nom', 'prenom'));
+        $data_brand = Marque::all();
+        $data_cat = Categorie::all();
+        return view('carManagement.modifyBrand', compact('nom', 'prenom', 'data_brand', 'data_cat'));
     }
 
-    public function brand_modify(){
+    public function brand_modify(Request $request){
+        $data = $request->all();
+        $request->validate([
+            "marque" => "required",
+            "new_name" => 'required',
+            "new_category" => 'required'
+        ]);
+
+        $save = Marque::where('id_marque', $request->marque)->update([
+            "name" => $data['new_name'],
+            "categorie_id" => $data['new_category']
+        ]);
         
+        return redirect()->route('cars')->with('success', 'Modification effectuée avec succès');
     }
 }

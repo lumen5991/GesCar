@@ -6,28 +6,22 @@
                         style="width: 150px; height:150px; border-radius:50%;"> </a>
             </div>
             <h2 class="text-center" style="margin-top: -20px">Ajouter une voiture</h2>
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{route('add_cars')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <div>
-                            <strong>Message Success</strong> <br>
-                            {{ session('success') }}
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
-                @if (session('errors'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <div>
-                            <strong>Alert</strong> <br>
-                            {{ session('errors') }}
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                @if ($errors->any())
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 @endif
                 <div>
-                    <div class="mb-3">
+                 <!--    <div class="mb-3">
                         <select class="form-select" name="" id="">
                             <option selected> Sélectionner la catégorie</option>
                             <option value="">Voiture 1</option>
@@ -40,12 +34,13 @@
                             <option value="">Voiture 1</option>
                             <option value="">Voiture 1</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
-                        <select class="form-select" name="" id="">
+                        <select class="form-select" name="modele_id" id="">
                             <option selected> Sélectionner le modèle</option>
-                            <option value="">Voiture 1</option>
-                            <option value="">Voiture 1</option>
+                           @foreach($data_model as $item)
+                           <option value="{{$item['id_modele']}}">{{$item['modele_name']}}</option>
+                           @endforeach
                         </select>
                     </div>
                     <div class="d-flex justify-content-between mb-3">
@@ -107,9 +102,15 @@
                         </div>
                     </div>
                     <div class="form-group ">
-                        <input type="file" class="form-control" id="image" name="image" value=""
-                            multiple>
+                        <input type="file" class="form-control" id="image" name="image_principale">
                     </div>
+                    <div class="form-group ">
+                        <input type="file" class="form-control" id="image" name="image_2">
+                    </div>
+                    <div class="form-group ">
+                        <input type="file" class="form-control" id="image" name="image_3">
+                    </div>
+
 
                     <div class="d-flex align-items-center justify-content-between mt-2">
 

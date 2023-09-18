@@ -47,6 +47,6 @@ class CategorieController extends Controller
             "name" => $data['new_name']
         ]);
 
-        return redirect()->route('cars')->with('success', 'mdification de la categorie effecrtuée avec succès !');
+        return redirect()->route('cars')->with('success', 'Modification de la categorie effectuée avec succès !');
     }
 }

@@ -9,4 +9,8 @@ class Categorie extends Model
 {
     protected $fillable = ["name"];
     protected $table = "categorie";
+
+    public function marque(){
+        return $this -> hasMany(Marque::class);
+    }
 }

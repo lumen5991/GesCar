@@ -12,7 +12,7 @@ class Voiture extends Model
         'boite_vitesse',
         'puissance',
         'nbre_porte',
-        'caburant',
+        'carburant',
         'nbre_cylindre',
         'soupape',
         'vitesse_max',
@@ -24,13 +24,16 @@ class Voiture extends Model
         'image_principale',
         'image_2',
         'image_3',
-        'modele'
+        'modele_id'
     ];
 
     protected $table = "voiture";
 
-    public function get_attributes(){
-        return $this->belongsTo(Modele::class);
-        return $this->belongsTo(Marque::class);
+    public function cars_modele(){
+        return $this->belongsTo(Modele::class, 'modele_id', 'id_modele');
+    } 
+
+    public function location(){
+        return $this-> hasMany(Location::class, 'id_voiture', 'id_location');
     }
 }
