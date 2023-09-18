@@ -32,9 +32,14 @@
                     <td class="align-middle"><a href="{{route('seeMore')}}">Voir Fiche</a></td>
                     <td class="align-middle">2023-09-18</td>
                     <td class="align-middle">2023-09-30</td>
-                    <td class="align-middle"> <input type="date" class="form-control" id="date_retour_effective" name="date_retour_effective"></td>
+                    <td class="align-middle"> 
+                        <input type="date" class="form-control" id="date_retour_effective" name="date_retour_effective">
+                    </td>
                     <td class="align-middle">Délai respecté</td>
-                    <td class="align-middle">Observation1</td>
+                    <td class="align-middle">
+                        <textarea name="bio" id="" cols="2" rows="2" class="form-control"></textarea>
+                        <p></p>
+                    </td>
                 </tr>
             </tbody>
         </table>

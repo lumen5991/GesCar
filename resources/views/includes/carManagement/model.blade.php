@@ -42,7 +42,6 @@
                     </div>
                 </div>
 
-
                 <div class="d-flex align-items-center justify-content-between mt-2">
                     <div>
                         <button type="submit" class="btn btn-connexion btn-lg ">Enregistrer</button>
