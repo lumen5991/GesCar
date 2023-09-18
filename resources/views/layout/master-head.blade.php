@@ -43,11 +43,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('rental')}}">
                                 <i class="fas fa-handshake"></i> Gestion des locations
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div style="margin-top:40%">
+                    <h6 style="color:#36264D">
+                        Prod by @ Lumen  AHLE <br>
+                        & Rostel PANOUMASSI
+                    </h6>
                 </div>
             </div>
 
