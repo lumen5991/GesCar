@@ -52,6 +52,8 @@ Route::controller(ClientController::class)->middleware('auth')->prefix('client')
     Route::get('/modifycusto/{id_client}', 'modifycusto')->name('modifycusto');
 
     Route::post('/modifyCustomersInfo/modifycusto/{id_client}', 'modifyCustomersInfo')->name('modifyCustomersInfo');
+
+    Route::get('/print_client', 'print_client')->name('print_client');
 });
 
 Route::controller(VoitureController::class)->middleware('auth')->prefix('voiture')->group(function(){

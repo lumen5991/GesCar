@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ClientController extends Controller
 {   
@@ -118,5 +119,15 @@ class ClientController extends Controller
     ]); */
 
    return redirect()->route('customers')->with('message', 'Modification effectuée !');
+ }
+
+ public function print_client(){
+    $client = Client::all();
+     $user = Auth::user();
+     $nom = $user ? $user->nom :"";
+     $prenom = $user ? $user->prenom: "";
+     $pdf = Pdf::loadView('print_client', ['client'=>$client]);
+     $pdf->setPaper('A4');
+     return $pdf->download('print_client.pdf');
  }
 }

@@ -3,6 +3,9 @@
         <div>
             <a href="{{ route('addcar') }}" class="btn btn-car ">Ajouter une voiture</a>
         </div>
+        <div>
+            <a href="" class="btn btn-car ">Imprimer la liste des location</a>
+        </div>
         <div class="d-flex gap-3">
             <div class="dropdown">
                 <button class="btn btn-cat dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Catégorie</button>

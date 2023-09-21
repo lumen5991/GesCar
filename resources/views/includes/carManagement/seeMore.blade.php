@@ -25,7 +25,7 @@
                     <p><strong style="color: #2D062B">Carburant:</strong>{{$data->carburant}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Nombre de cylindre:</strong>{{$data->cylindre}}</p>
+                    <p><strong style="color: #2D062B">Nombre de cylindre:</strong>{{$data->nbre_cylindre}}</p>
                 </div>
                 <div>
                     <p><strong style="color: #2D062B">Soupape:</strong>{{$data->soupape}}</p>
@@ -74,7 +74,7 @@
                     <p><strong style="color: #2D062B">Vitesse maximale:</strong>{{$data->vitesse_max}}</p>
                 </div>
                 <div>
-                    <p><strong style="color: #2D062B">Carosserie:</strong>{{$data->carrosserie}}</p>
+                    <p><strong style="color: #2D062B">Carosserie:</strong>{{$data->carosserie}}</p>
                 </div>
                 <div>
                     <p><strong style="color: #2D062B">Transmission:</strong>{{$data->transmission}}</p>
